@@ -1,6 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-
-const initialState = {
+interface PropsStateOrder {
+  order: {
+    products: any;
+    billing: any;
+    shipping: any;
+  };
+}
+const initialState: PropsStateOrder = {
   order: {
     products: null,
     billing: null,
