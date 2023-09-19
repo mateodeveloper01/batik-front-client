@@ -6,13 +6,14 @@ export interface PropsItem {
   id?: string | never;
   img: any;
   img2?: any;
-  quantity?: number;
+  quantity: number;
   description: string;
   _id?: string;
 }
 
 export interface PropsCategories {
   description: string;
+  img: any;
   title: string;
   _id: string;
 }

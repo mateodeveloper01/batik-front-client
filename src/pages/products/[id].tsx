@@ -21,7 +21,7 @@ const Products = () => {
     }
   );
 
-  const { data: categories, isLoading: loadingCategories } = useQuery<[]>({
+  const { data: categories, isLoading: loadingCategories } = useQuery<PropsCategories[]>({
     queryKey: ["categories",query.id],
     queryFn: () => getItem(`/categories/${query.id}`),
   });
