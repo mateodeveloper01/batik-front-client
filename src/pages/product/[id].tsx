@@ -17,10 +17,10 @@ const Product = () => {
   if (!query.id) {
     return <div>cargandoo..</div>;
   }
-  const [selectImg, setSelectImg] = useState("img");
+  const [selectImg, setSelectImg] = useState<"img" | "img2">("img");
   const [quantity, setQuantity] = useState(1);
 
-  const { data, isLoading } = useQuery<PropsItem[]>({
+  const { data, isLoading } = useQuery<PropsItem>({
     queryKey: ["productsId"],
     queryFn: () => getItem(`/products/id/${query.id}`),
   });
@@ -99,7 +99,7 @@ const Product = () => {
                     )
                   }
                 >
-                <MdOutlineAddShoppingCart className="text-2xl" />
+                  <MdOutlineAddShoppingCart className="text-2xl" />
                   Agregar al carrito
                 </Button>
 
