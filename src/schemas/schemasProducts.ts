@@ -1,18 +1,19 @@
 export interface PropsItem {
   price: number;
-  oldPrice: number;
+  oldPrice?: number;
   title: string;
-  isNew: boolean;
-  id: string | never;
+  isNew?: boolean;
+  id?: string | never;
   img: any;
-  img2: any;
+  img2?: any;
   quantity: number;
   description: string;
-  _id: string;
+  _id?: string;
 }
 
 export interface PropsCategories {
   description: string;
+  img: any;
   title: string;
   _id: string;
 }

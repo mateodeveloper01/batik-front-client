@@ -1,4 +1,3 @@
-import { type AppType } from "next/dist/shared/lib/utils";
 import "~/styles/globals.css";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
@@ -9,7 +8,7 @@ import { AuthProvider } from "~/global/authProviders";
 import { ChakraProvider } from "@chakra-ui/react";
 import LayoutNotNav from "~/components/layouts/LayoutNotNav";
 
-const MyApp: AppType = ({ Component, pageProps }) => {
+const MyApp: any = ({ Component, pageProps }: any) => {
   const queryClient = new QueryClient();
   const isLayoutEnabled = Component.layout !== false;
   return (
