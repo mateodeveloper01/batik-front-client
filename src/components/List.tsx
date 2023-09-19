@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getItem } from "~/api/api";
 
 interface Props {
-  catId: string | string[] | undefined;
+  catId?: string | string[];
   maxPrice: number | string;
   sort: string | null;
   subCats: string[];
@@ -17,7 +17,6 @@ interface PropCard {
 }
 
 const List = ({ catId, maxPrice, sort, subCats }: Props) => {
-
   const { data, isLoading, isError } = useQuery<[]>({
     queryKey: ["productsId", catId, maxPrice, sort, subCats],
     queryFn: () =>
