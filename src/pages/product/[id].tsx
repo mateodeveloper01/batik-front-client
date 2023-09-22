@@ -7,7 +7,7 @@ import {
   MdOutlineFavoriteBorder,
 } from "react-icons/md";
 // import {} from "react-icons/";
-import { Button, ButtonGroup } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
 import { getItem } from "~/api/api";
 import { PropsItem } from "~/schemas/schemasProducts";

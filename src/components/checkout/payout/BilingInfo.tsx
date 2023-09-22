@@ -8,7 +8,7 @@ import { PropStateOrder, PropStateUser } from "~/schemas/schemasCheckout";
 const BilingInfo = () => {
   const order = useSelector((state: PropStateOrder) => state.order.order);
   const email = useSelector(
-    (state: PropStateUser) => state.user.user.data.data.email
+    (state:any) => state.user.user.email 
   );
   const {
     street_name,

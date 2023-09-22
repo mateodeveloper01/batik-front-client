@@ -36,7 +36,7 @@ const Login = () => {
       .post(`${env.NEXT_PUBLIC_BACKEND_BASE_URL}/api/auth/local/login`, data, {
         withCredentials: true,
       })
-      .then((res) => dispatch(setUser(res)));
+      .then((res) => dispatch(setUser(res.data.data)));
   };
   const onError = (error: any) => console.log({ error });
 
@@ -63,7 +63,8 @@ const Login = () => {
         <Button variant="link">
           <Link href={"/acount/register"}>
             Aun no estas registrado?
-            <br /><label className="text-[#319795]">Registrarse aqui</label>
+            <br />
+            <label className="text-[#319795]">Registrarse aqui</label>
           </Link>
         </Button>
         <DevTool control={control} />
