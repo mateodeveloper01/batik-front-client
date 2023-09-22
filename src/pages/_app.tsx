@@ -10,12 +10,12 @@ import LayoutNotNav from "~/components/layouts/LayoutNotNav";
 
 const MyApp: any = ({ Component, pageProps }: any) => {
   const queryClient = new QueryClient();
-  const isLayoutEnabled = Component.layout !== false;
+  const isLayoutEnabled = Component.layout !== false; 
   return (
-    <ChakraProvider>
-      <Provider store={store}>
-        <PersistGate loading="loading" persistor={persistor}>
-          <AuthProvider>
+    <Provider store={store}>
+      <AuthProvider>
+        <ChakraProvider>
+          <PersistGate loading="loading" persistor={persistor}>
             <QueryClientProvider client={queryClient}>
               <>
                 {isLayoutEnabled && (
@@ -30,10 +30,10 @@ const MyApp: any = ({ Component, pageProps }: any) => {
                 )}
               </>
             </QueryClientProvider>
-          </AuthProvider>
-        </PersistGate>
-      </Provider>
-    </ChakraProvider>
+          </PersistGate>
+        </ChakraProvider>
+      </AuthProvider>
+    </Provider>
   );
 };
 

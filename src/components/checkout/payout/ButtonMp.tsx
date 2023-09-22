@@ -26,7 +26,7 @@ const ButtonMp = () => {
 
   const order = useSelector((state: PropStateOrder) => state.order.order);
   const email = useSelector(
-    (state: PropStateUser) => state.user.user.data.data.email
+    (state: any) => state.user.user.email
   );
   const data = { ...order, user: { email } };
   return (

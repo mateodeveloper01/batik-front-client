@@ -5,6 +5,7 @@ const baseURL = env.NEXT_PUBLIC_BACKEND_BASE_URL;
 
 export const getItem = async (url: string) => {
   const res = await axios.get(`${baseURL}/api${url}`);
+  // console.log(res);
   return res.data.data;
 };
 
