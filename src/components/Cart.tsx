@@ -60,7 +60,7 @@ const Cart = () => {
                   >
                     <Image
                       className="h-[100px] w-[80px] cursor-pointer object-cover"
-                      src={img}
+                      src={img[0].url}
                       alt={title}
                     />
                     <div>
