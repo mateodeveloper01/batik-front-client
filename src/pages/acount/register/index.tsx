@@ -33,7 +33,7 @@ const Register = () => {
     console.log(data);
     axios
       .post(
-        `${env.NEXT_PUBLIC_BACKEND_BASE_URL}/api/auth/local/register`,
+        `${env.NEXT_PUBLIC_BACKEND_BASE_URL}/api/auth/register`,
         data,
         {
           headers: {
