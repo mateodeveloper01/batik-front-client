@@ -38,7 +38,7 @@ const CartContainer = () => {
             <HStack key={id} className="flex items-center gap-5">
               <img
                 className="h-[100px] w-[80px] cursor-pointer object-cover"
-                src={img}
+                src={img[0].url}
                 alt=""
               />
               <div>

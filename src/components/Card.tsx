@@ -9,8 +9,8 @@ interface Props {
 }
 
 const Card = ({ item }: Props) => {
-  const { price, title, isNew, img, img2, _id }: any = item;
-   return (
+  const { price, title, isNew, img, _id }: any = item;
+  return (
     <Link href={`/product/${_id}`}>
       <div className="card mb-12 flex w-[280px] flex-col gap-3">
         <div className="relative h-[400px] w-full overflow-hidden ">
@@ -25,7 +25,7 @@ const Card = ({ item }: Props) => {
           />
           <img
             className="img2 absolute h-full w-full object-cover"
-            src={img2[0] ? img2[0].url : ""}
+            src={img[1] ? img[1].url : ""}
           />
         </div>
         <h1>{title}</h1>

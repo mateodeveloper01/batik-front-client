@@ -15,19 +15,15 @@ interface PropCard {
   attributes: PropsItem;
   _id: string | never;
 }
-
 const List = ({ catId, maxPrice, sort, subCats }: Props) => {
   const { data, isLoading, isError } = useQuery<[]>({
     queryKey: ["productsId", catId, maxPrice, sort, subCats],
-    queryFn: () =>
-      getItem(
-        `/products?populate=*&[filter][categories][title]=${catId}${subCats.map(
-          (item) =>
-            `&[filter][sub_categories][id][$eq]=${item}&[filter][price][$lte]=${maxPrice}&[filter][sortprice]=${sort}`
-        )}`
-      ),
+    queryFn: () => getItem(`/products?populate=*&[filter][category]=${catId}`),
   });
-
+  // `/products?populate=*&[filter][categories][title]=${catId}${subCats.map(
+  //   (item) =>
+  //     `&[filter][sub_categories][id][$eq]=${item}&[filter][price][$lte]=${maxPrice}&[filter][sortprice]=${sort}`
+  // )}`
   return (
     <div className="flex flex-wrap gap-16">
       {isError
