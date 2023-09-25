@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { getItem } from "~/api/api";
 import List from "~/components/List";
-import { PropsCategories, PropsSubCategories } from "~/schemas/schemasProducts";
+import { PropsCategories } from "~/schemas/schemasProducts";
 
 const Products = () => {
   const { query } = useRouter();
@@ -14,12 +14,7 @@ const Products = () => {
   const [sort, setSort] = useState<null | "asc" | "desc">(null);
   const [selectedSubCats, setSelectedSubCats] = useState([]);
 
-  const { data: SubCategories, isLoading: loadingSubCategories } = useQuery<[]>(
-    {
-      queryKey: ["subCategories",query.id],
-      queryFn: () => getItem(`/sub-categories?[filter][title]=${query.id}`),
-    }
-  );
+
 
   const { data: categories, isLoading: loadingCategories } = useQuery<PropsCategories[]>({
     queryKey: ["categories",query.id],
@@ -37,14 +32,11 @@ const Products = () => {
     console.log(checked);
   };
 
-  if (loadingSubCategories) {
-    return <div>Loading...</div>;
-  }
 
   return (
     <div className="flex px-12 py-7">
       <div className="flex-1">
-        <div>
+        {/* <div>
           <h1>Categorias de productos</h1>
           {SubCategories?.map((item: PropsSubCategories) => (
             <div key={item._id} className="flex gap-3">
@@ -59,7 +51,7 @@ const Products = () => {
               </label>
             </div>
           ))}
-        </div>
+        </div> */}
         <div>
           <h1>Filtrar por precio</h1>
           <div>

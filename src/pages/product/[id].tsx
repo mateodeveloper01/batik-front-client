@@ -17,7 +17,7 @@ const Product = () => {
   if (!query.id) {
     return <div>cargandoo..</div>;
   }
-  const [selectImg, setSelectImg] = useState<"img" | "img2">("img");
+  const [selectImg, setSelectImg] = useState<number>(0);
   const [quantity, setQuantity] = useState(1);
 
   const { data, isLoading } = useQuery<PropsItem>({
@@ -37,21 +37,19 @@ const Product = () => {
           <>
             <div className="flex flex-1 gap-10">
               <div className="flex-1">
-                <img
-                  className="mb-3 h-[150px] w-full cursor-pointer object-cover"
-                  src={data?.img[0]?.url}
-                  onClick={(e) => setSelectImg("img")}
-                />
-                <img
-                  className="mb-3 h-[150px] w-full cursor-pointer object-cover"
-                  src={data?.img2[0]?.url}
-                  onClick={(e) => setSelectImg("img2")}
-                />
+                {data.img.map((item, index) => (
+                  <img
+                    key={item._id}
+                    className="mb-3 h-[150px] w-full cursor-pointer object-cover"
+                    src={item.url}
+                    onClick={(e) => setSelectImg(index)}
+                  />
+                ))}
               </div>
               <div className="flex-5">
                 <img
                   className="max-h-[800px] w-full object-cover"
-                  src={data?.[selectImg][0]?.url}
+                  src={data?.img[selectImg]?.url}
                 />
               </div>
             </div>
@@ -93,7 +91,7 @@ const Product = () => {
                         title: data.title,
                         description: data.description,
                         price: data.price,
-                        img: data?.img2[0]?.url,
+                        img: data?.img[0]?.url,
                         quantity,
                       })
                     )
