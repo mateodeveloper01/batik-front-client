@@ -33,7 +33,7 @@ const Login = () => {
   });
   const onSubmit = (data: any) => {
     axios
-      .post(`${env.NEXT_PUBLIC_BACKEND_BASE_URL}/api/auth/local/login`, data, {
+      .post(`${env.NEXT_PUBLIC_BACKEND_BASE_URL}/api/auth/login`, data, {
         withCredentials: true,
       })
       .then((res) => dispatch(setUser(res.data.data)));
