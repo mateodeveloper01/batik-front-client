@@ -37,7 +37,7 @@ const Product = () => {
           <>
             <div className="flex flex-1 gap-10">
               <div className="flex-1">
-                {data.img.map((item, index) => (
+                {data.img.map((item: any, index: number) => (
                   <img
                     key={item._id}
                     className="mb-3 h-[150px] w-full cursor-pointer object-cover"

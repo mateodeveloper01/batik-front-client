@@ -22,14 +22,10 @@ import {
 } from "@chakra-ui/react";
 const Cart = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const btnRef = React.useRef();
   const products = useSelector(
     (state: PropStateProducts) => state.cart.products
   );
   const dispatch = useDispatch();
-  const price = useSelector((state: PropStateProducts) =>
-    totalPrice(state.cart.products)
-  );
 
   return (
     <>
@@ -41,13 +37,11 @@ const Cart = () => {
         isOpen={isOpen}
         placement="right"
         onClose={onClose}
-        // finalFocusRef={btnRef}
       >
         <DrawerOverlay />
-        <DrawerContent >
+        <DrawerContent>
           <DrawerCloseButton />
           <DrawerHeader>Productos en el carrito</DrawerHeader>
-
           <DrawerBody>
             {products?.map(
               ({ price, id, title, img, description, quantity }: PropsItem) => (
@@ -60,7 +54,7 @@ const Cart = () => {
                   >
                     <Image
                       className="h-[100px] w-[80px] cursor-pointer object-cover"
-                      src={img[0].url}
+                      src={img}
                       alt={title}
                     />
                     <div>
@@ -79,7 +73,6 @@ const Cart = () => {
               )
             )}
           </DrawerBody>
-
           <DrawerFooter>
             <Button variant="outline" mr={3} onClick={onClose}>
               Cancel

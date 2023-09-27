@@ -8,7 +8,7 @@ export const schemaShipment = z.object({
 
   phone_number: z.string().optional(),
   phone_area_code: z.string().min(4),
-
+  shippingMethod: z.enum(["envio"]),
   province: z.enum(provinceList),
   city: z.string().min(4),
   street_name: z.string().min(4),
@@ -19,7 +19,16 @@ export const schemaShipment = z.object({
   observations: z.string().optional(),
 });
 
+export const schemaRetiro = z.object({
+  name: z.string().min(3),
+  surname: z.string().min(3),
+
+  phone_number: z.string().optional(),
+  phone_area_code: z.string().min(4),
+  shippingMethod: z.enum(["retiro"]),
+});
 export type fieldValuesShipment = z.infer<typeof schemaShipment>;
+export type fieldValuesretiro = z.infer<typeof schemaRetiro>;
 
 export const schemaBilling = z.object({
   name: z.string().min(4),
@@ -46,7 +55,7 @@ export type fieldValuesIdentification = z.infer<typeof schemaIdentification>;
 export interface PropStateOrder {
   order: {
     order: {
-      shipping: fieldValuesShipment;
+      shipping: fieldValuesShipment | fieldValuesretiro;
       products: PropsItemCart[];
       billing: fieldValuesBilling;
     };

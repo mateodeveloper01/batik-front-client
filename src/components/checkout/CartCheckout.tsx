@@ -10,7 +10,6 @@ const CartCheckout = ({ fixed = true }: Prop) => {
   const products = useSelector(
     (state: PropStateProducts) => state.cart.products
   );
-  const dispatch = useDispatch();
   const totalPrice = () => {
     let total = 0;
     products.forEach(
@@ -34,7 +33,7 @@ const CartCheckout = ({ fixed = true }: Prop) => {
           <HStack key={id} className="flex items-center gap-5">
             <img
               className="h-[100px] w-[80px] cursor-pointer object-cover"
-              src={img[0].url}
+              src={img}
               alt=""
             />
             <div>

@@ -4,7 +4,7 @@ export interface PropsItem {
   title: string;
   isNew?: boolean;
   id?: string | never;
-  img: any[];
+  img: any;
   quantity: number;
   description: string;
   _id?: string;
