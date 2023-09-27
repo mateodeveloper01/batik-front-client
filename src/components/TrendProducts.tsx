@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import Card from "./Card";
 import { type PropsItem } from "~/schemas/schemasProducts";
 import { getItem } from "~/api/api";
+import { Grid } from "@chakra-ui/react";
 
 interface Props {
   type: string;
@@ -13,12 +14,12 @@ const TrendProducts = ({ type }: Props) => {
   // );
 
   const { data, isLoading } = useQuery<[]>({
-    queryKey: ["products"],
+    queryKey: [`products${type}`],
     queryFn: () => getItem(`/products/type/${type}`),
   });
   // ?populate=*&[filters][type][$eq]=${type}
   return (
-    <div className="mx-52 my-28">
+    <div className="mx-52 my-28  flex flex-col justify-center items-center">
       <div className="mb-12 flex items-center justify-between">
         <h1 className="flex-2 capitalize">{type} products</h1>
         <p className="flex-3 text-gray-500">
@@ -28,17 +29,20 @@ const TrendProducts = ({ type }: Props) => {
           laudantium omnis perspiciatis. Odio?
         </p>
       </div>
-      <div className="flex justify-center gap-6">
+      <Grid
+        templateColumns={"repeat(4, 1fr)"}
+        gap={10}
+      >
         {
           // error
           //   ? "Algo salió mal"
           !isLoading && data
             ? data
-                .slice(0, 4)
+                .slice(0, 8)
                 .map((item: any) => <Card item={item} key={item._id} />)
             : "loading"
         }
-      </div>
+      </Grid>
     </div>
   );
 };

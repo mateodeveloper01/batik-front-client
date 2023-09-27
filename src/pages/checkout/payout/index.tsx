@@ -4,6 +4,7 @@ import CartCheckout from "~/components/checkout/CartCheckout";
 import PayoutForm from "~/components/checkout/payout/PayoutForm";
 
 export default function Payout() {
+  
   return (
     <Flex justify={"center"} pt={10} gap={4}>
       <Box w={"40%"} px={4}>

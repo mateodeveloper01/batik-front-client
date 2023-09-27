@@ -12,7 +12,7 @@ const Card = ({ item }: Props) => {
   const { price, title, isNew, img, _id }: any = item;
   return (
     <Link href={`/product/${_id}`}>
-      <div className="card mb-12 flex  flex-col gap-3">
+      <div className="card mb-12 flex w-[220px] flex-col gap-3">
         <div className="relative h-[350px] w-full overflow-hidden ">
           {isNew && (
             <span className="z-3 absolute left-2 top-2 bg-white px-[5px] py-[1px] text-teal-600">

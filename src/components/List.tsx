@@ -33,9 +33,12 @@ const List = ({ catId, maxPrice, sort, subCats }: Props) => {
   //   (item) =>
   //     `&[filter][sub_categories][id][$eq]=${item}&[filter][price][$lte]=${maxPrice}&[filter][sortprice]=${sort}`
   // )}`
-  console.log(products);
   return (
-    <Grid templateColumns='repeat(4, 1fr)' gap={10}>
+    <Grid
+      templateRows="repeat(2, 1fr)"
+      templateColumns="repeat(4, 1fr)"
+      gap={10}
+    >
       {catId
         ? isError
           ? "Algo salió mal"
