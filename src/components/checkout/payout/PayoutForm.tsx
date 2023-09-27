@@ -1,28 +1,32 @@
-import { Heading, Stack, Box, Button } from "@chakra-ui/react";
+import { Heading, Stack, Box } from "@chakra-ui/react";
 import CardPayout from "./PayoutCard";
-import FormCredit from "./form/FormCredit";
 import { useState } from "react";
-import FormMp from "./form/FormMp";
-import Link from "next/link";
-import ButtonMp from "./ButtonMp";
+import InfoMp from "./form/InfoMp";
+import ButtonPayment from "./ButtonPayment";
+import { PropStateOrder } from "~/schemas/schemasCheckout";
+import { useSelector } from "react-redux";
 
 const PayoutForm = () => {
   const [hidden, setHidden] = useState(0);
+  const order = useSelector((state: PropStateOrder) => state.order.order);
+  const { shippingMethod } = order.shipping;
+
   const payoutMethods = [
     // { id: 1, title: "Tarjeta de credito y debito", form: <FormCredit /> },
-    // { id: 2, title: "Rapipago o Pago facil", form: <FormCredit /> },
-    // {
-    //   id: 3,
-    //   title: "Transferencia / Deposito / Dinero mercadoPago",
-    //   form: <FormCredit />,
-    // },
+    { id: 2, title: "Pago por el local", form: <></>, value: "paymentStore" },
+    {
+      id: 3,
+      title: "Transferencia / Deposito / Dinero mercadoPago",
+      form: <>Se enviaran los datos de transferencia al confirmar la compra</>,
+      value: "transfer",
+    },
     {
       id: 4,
       title: "Mercado Pago",
-      form: <FormMp />,
+      form: <InfoMp />,
+      value: "mp",
     },
   ];
-  console.log(hidden);
   return (
     <Stack spacing={3}>
       <Heading textTransform={"uppercase"} pt={8} pb={4} size={"lg"}>
@@ -33,7 +37,9 @@ const PayoutForm = () => {
         return (
           <Box
             key={id}
-            className={`${hidden !== id && hidden !== 0 && "hidden"}`}
+            className={`${hidden !== id && hidden !== 0 && "hidden"} ${
+              shippingMethod == "envio" && id === 2 && "hidden"
+            }`}
             onClick={() => {
               if (hidden == id) {
                 setHidden(0);
@@ -47,13 +53,12 @@ const PayoutForm = () => {
         );
       })}
       <div className=" flex w-full items-end justify-end ">
-        {hidden === 0 && (
-          <Button m={4} colorScheme="gray" mr={0}>
-            Terminar compra
-          </Button>
-        )}
-        {hidden == 4 && (
-          <ButtonMp/>
+        {hidden !== 0 && (
+          <ButtonPayment
+            method={
+              payoutMethods.filter((method) => method.id === hidden)[0].value
+            }
+          />
         )}
       </div>
     </Stack>
