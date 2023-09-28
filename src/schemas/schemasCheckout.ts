@@ -62,5 +62,5 @@ export interface PropStateOrder {
   };
 }
 export interface PropStateUser {
-  user: { user: { data: { data: { email: string } } } };
+  user: { user: { email: string; username: string } };
 }

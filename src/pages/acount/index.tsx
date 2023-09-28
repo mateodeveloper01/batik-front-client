@@ -13,12 +13,12 @@ import {
   StackDivider,
 } from "@chakra-ui/react";
 import { PropOrder } from "~/schemas/schemaOrder";
+import { PropStateUser } from "~/schemas/schemasCheckout";
 
 const Acount = () => {
-  const { email, username } = useSelector((state: any) => {
+  const { email, username } = useSelector((state:PropStateUser) => {
     return state.user.user;
   });
-
   const { data, isLoading } = useQuery<PropOrder[]>({
     queryKey: ["orders"],
     queryFn: () => getItem(`/orders/${email}`),

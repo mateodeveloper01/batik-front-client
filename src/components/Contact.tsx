@@ -11,7 +11,7 @@ const Contact = () => {
         <div className="border-none ">
           <input
             type="text"
-            className="rounded-l p-2"
+            className="rounded-l p-2 w-full"
             placeholder=" Escriba su E-mail..."
           />
           <button className="rounded-r bg-black p-2 ">Enviar</button>

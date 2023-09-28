@@ -14,44 +14,16 @@ const Products = () => {
   const [sort, setSort] = useState<null | "asc" | "desc">(null);
   const [selectedSubCats, setSelectedSubCats] = useState([]);
 
-
-
-  const { data: categories, isLoading: loadingCategories } = useQuery<PropsCategories[]>({
-    queryKey: ["categories",query.id],
+  const { data: categories, isLoading: loadingCategories } = useQuery<
+    PropsCategories[]
+  >({
+    queryKey: ["categories", query.id],
     queryFn: () => getItem(`/categories/${query.id}`),
   });
 
-  const handleChange = (e: any) => {
-    const value: number = e.target.value;
-    const isChecked: boolean = e.target.checked;
-    const checked: any = isChecked
-      ? [...selectedSubCats, value]
-      : selectedSubCats.filter((item) => item !== value);
-
-    setSelectedSubCats(checked);
-    console.log(checked);
-  };
-
-
   return (
-    <div className="flex px-12 py-7">
-      <div className="flex-1">
-        {/* <div>
-          <h1>Categorias de productos</h1>
-          {SubCategories?.map((item: PropsSubCategories) => (
-            <div key={item._id} className="flex gap-3">
-              <input
-                type="checkbox"
-                id={item._id}
-                value={item._id}
-                onChange={handleChange}
-              />
-              <label className="capitalize" htmlFor={item._id}>
-                {item.title}
-              </label>
-            </div>
-          ))}
-        </div> */}
+    <div className="flex px-12 py-7 max-md:flex-col-reverse max-md:px-4 max-md:py-20">
+      <div className="flex-1 max-md:hidden">
         <div>
           <h1>Filtrar por precio</h1>
           <div>
@@ -91,10 +63,8 @@ const Products = () => {
       </div>
       <div className="flex-3">
         <img
-          className="mb-10 h-[300px] w-full object-cover "
+          className="mb-10 h-[300px] w-full object-cover max-md:hidden"
           src={categories ? categories[0]?.img[0]?.url : ""}
-          // src="https://images.pexels.com/photos/1074535/pexels-photo-1074535.jpeg?auto=compress&cs=tinysrgb&w=1600"
-          alt=""
         />
         <List
           catId={query.id}
@@ -108,3 +78,30 @@ const Products = () => {
 };
 
 export default Products;
+// const handleChange = (e: any) => {
+//   const value: number = e.target.value;
+//   const isChecked: boolean = e.target.checked;
+//   const checked: any = isChecked
+//     ? [...selectedSubCats, value]
+//     : selectedSubCats.filter((item) => item !== value);
+
+//   setSelectedSubCats(checked);
+// };
+{
+  /* <div>
+          <h1>Categorias de productos</h1>
+          {SubCategories?.map((item: PropsSubCategories) => (
+            <div key={item._id} className="flex gap-3">
+              <input
+                type="checkbox"
+                id={item._id}
+                value={item._id}
+                onChange={handleChange}
+              />
+              <label className="capitalize" htmlFor={item._id}>
+                {item.title}
+              </label>
+            </div>
+          ))}
+        </div> */
+}

@@ -10,7 +10,6 @@ import {
 } from "~/schemas/schemasProducts";
 
 const Products = () => {
-  
   const [maxPrice, setMaxPrice] = useState<number | string>(100000);
   const [sort, setSort] = useState<null | "asc" | "desc">(null);
   const [selectedSubCats, setSelectedSubCats] = useState([]);
@@ -35,23 +34,7 @@ const Products = () => {
 
   return (
     <div className="flex px-12 py-7">
-      <div className="flex-1">
-        {/* <div>
-          <h1>Categorias de productos</h1>
-          {SubCategories?.map((item: PropsSubCategories) => (
-            <div key={item._id} className="flex gap-3">
-              <input
-                type="checkbox"
-                id={item._id}
-                value={item._id}
-                onChange={handleChange}
-              />
-              <label className="capitalize" htmlFor={item._id}>
-                {item.title}
-              </label>
-            </div>
-          ))}
-        </div> */}
+      <div className="flex-1 max-md:hidden">
         <div>
           <h1>Filtrar por precio</h1>
           <div>
@@ -90,7 +73,6 @@ const Products = () => {
         </div>
       </div>
       <div className="flex-3">
-        
         <List
           // catId={query.id}
           maxPrice={maxPrice}
@@ -103,3 +85,21 @@ const Products = () => {
 };
 
 export default Products;
+{
+  /* <div>
+          <h1>Categorias de productos</h1>
+          {SubCategories?.map((item: PropsSubCategories) => (
+            <div key={item._id} className="flex gap-3">
+              <input
+                type="checkbox"
+                id={item._id}
+                value={item._id}
+                onChange={handleChange}
+              />
+              <label className="capitalize" htmlFor={item._id}>
+                {item.title}
+              </label>
+            </div>
+          ))}
+        </div> */
+}

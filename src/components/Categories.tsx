@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Categories = () => {
   return (
-    <div className="parent w-img h-[70vh] px-2 ">
+    <div className="parent w-img h-[70vh] max-md:h-[40vh] px-2 max-md:py-12">
       <div className="div2 ">
         <img className="img-category" src="./img/category6.jpg" alt="" />
         <button className="button-category">
