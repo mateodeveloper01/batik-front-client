@@ -19,10 +19,10 @@ const TrendProducts = ({ type }: Props) => {
   });
   // ?populate=*&[filters][type][$eq]=${type}
   return (
-    <div className="mx-52 my-28  flex flex-col justify-center items-center">
-      <div className="mb-12 flex items-center justify-between">
+    <div className=" flex flex-col items-center justify-center">
+      <div className="m-5 mb-12 flex items-center justify-between md:m-40">
         <h1 className="flex-2 capitalize">{type} products</h1>
-        <p className="flex-3 text-gray-500">
+        <p className="flex-3 text-gray-500 max-md:hidden">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis vitae
           vero reprehenderit quo at amet, inventore consequuntur voluptatibus
           possimus deserunt nostrum corrupti! Temporibus nostrum odit possimus
@@ -30,18 +30,16 @@ const TrendProducts = ({ type }: Props) => {
         </p>
       </div>
       <Grid
-        templateColumns={"repeat(4, 1fr)"}
-        gap={10}
+        templateColumns={{ base: "repeat(2, 1fr)", md: "repeat(4, 1fr)" }}
+        columnGap={{ base: 4, md: 10 }}
+        w={"80vw"}
+        h={'full'}
       >
-        {
-          // error
-          //   ? "Algo salió mal"
-          !isLoading && data
-            ? data
-                .slice(0, 8)
-                .map((item: any) => <Card item={item} key={item._id} />)
-            : "loading"
-        }
+        {!isLoading && data
+          ? data
+              .slice(0, 8)
+              .map((item: any) => <Card item={item} key={item._id} />)
+          : "loading"}
       </Grid>
     </div>
   );

@@ -36,8 +36,9 @@ const List = ({ catId, maxPrice, sort, subCats }: Props) => {
   return (
     <Grid
       templateRows="repeat(2, 1fr)"
-      templateColumns="repeat(4, 1fr)"
-      gap={10}
+      templateColumns={{ base: "repeat(2, 1fr)", md: "repeat(4, 1fr)" }}
+      rowGap={{ base:4, md: 10 }}
+      columnGap={{ base:2, md: 10 }}
     >
       {catId
         ? isError
