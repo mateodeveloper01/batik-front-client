@@ -11,7 +11,7 @@ const Home = () => {
       <TrendProducts type="featured" />
       <Categories />
       <TrendProducts type="trending" />
-      <Contact />
+      {/* <Contact /> */}
     </>
   );
 };
