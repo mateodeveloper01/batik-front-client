@@ -15,11 +15,17 @@ const payoutMethods = [
   { url: "/paymentmethod/13-walmart.png" },
   { url: "/paymentmethod/14-sucedito.png" },
 ];
-const ListCreditCard = () => {
+const ListCreditCard = ({ w, h }: { w?: number; h?: number }) => {
   return (
     <Grid templateColumns="repeat(15, 1fr)" h={"auto"} gap={1}>
       {payoutMethods.map((i) => (
-        <Box key={i.url} p={0.2} w={"30px"} h={"20px"} className="rounded-sm border">
+        <Box
+          key={i.url}
+          p={0.2}
+          w={w || "30px"}
+          h={h || "20px"}
+          className="rounded-sm border"
+        >
           <Image src={i.url} boxSize={"100%"} objectFit={"contain"} />
         </Box>
       ))}
