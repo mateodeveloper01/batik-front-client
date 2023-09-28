@@ -6,7 +6,7 @@ type Props = {
 export default function LayoutNotNav({ children }: Props) {
   return (
     <>
-      <div className="h-navbar flex items-center justify-center px-4">
+      <div className="h-[80px] flex items-center justify-center px-4">
         <div>
           <div className=" text-3xl font-semibold">
             <Link href="/">Batik Moda</Link>

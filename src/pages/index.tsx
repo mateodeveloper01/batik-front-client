@@ -7,13 +7,14 @@ import TrendProducts from "~/components/TrendProducts";
 const Home = () => {
   return (
     <>
-      <Slider />
-      <TrendProducts type="featured" />
-      <Categories />
-      <TrendProducts type="trending" />
+      {/* <Slider /> */}
+      {/* <TrendProducts type="featured" /> */}
+      {/* <Categories /> */}
+      {/* <TrendProducts type="trending" /> */}
       {/* <Contact />  */}
     </>
   );
 };
 
+Home.layout = false;
 export default Home;
