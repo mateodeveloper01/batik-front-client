@@ -7,9 +7,9 @@ import TrendProducts from "~/components/TrendProducts";
 const Home = () => {
   return (
     <>
-      <Slider />
+      {/* <Slider /> */}
       <TrendProducts type="featured" />
-      <Categories />
+      {/* <Categories /> */}
       <TrendProducts type="trending" />
       {/* <Contact /> */}
     </>

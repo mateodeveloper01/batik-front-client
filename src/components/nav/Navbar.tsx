@@ -4,7 +4,7 @@ import { PropsCategories } from "~/schemas/schemasProducts";
 import { getItem } from "~/api/api";
 import { useQuery } from "@tanstack/react-query";
 import { AiOutlineUser } from "react-icons/ai";
-import { Button, Flex } from "@chakra-ui/react";
+import { Button, Flex, Image } from "@chakra-ui/react";
 import NavBarButton from "./NavBarButton";
 const Navbar = () => {
   const { data, isLoading } = useQuery<PropsCategories[]>({
@@ -12,8 +12,10 @@ const Navbar = () => {
     queryFn: () => getItem("/categories"),
   });
   return (
-    <>
-      <div className={`h-[80px] flex items-center px-4 max-md:hidden `}>
+    <div className="flex justify-center">
+      <div
+        className={`flex  w-screen max-w-[1310px] items-center px-4 max-md:hidden`}
+      >
         <div className="flex flex-grow basis-0 gap-5">
           <div className="flex gap-5">
             {data?.map((item: PropsCategories) => (
@@ -28,33 +30,40 @@ const Navbar = () => {
             </Button>
           </div>
         </div>
-        <div className="">
-          <div className=" text-3xl font-semibold">
-            <Link href="/">Batik Moda</Link>
-          </div>
+        <div className="py-2 text-3xl font-semibold ">
+          <Link href="/">
+            <Image src="/batik-logo.jpg" alt="batik logo" h={"80px"} />
+          </Link>
         </div>
         <div className="item-cent flex flex-grow basis-0 items-center justify-end gap-5">
-          <div className="flex items-center gap-3 text-2xl">
-            <Button>
-              <Link href="/acount">
-                <AiOutlineUser className="text-2xl text-black" />
-              </Link>
-            </Button>
-
-            <Cart />
-          </div>
+          {/* <div className="flex items-center gap-3 text-2xl"> */}
+          {/* <Button> */}
+          <Link href="/acount" className="rounded-md p-2 hover:bg-gray-200">
+            <AiOutlineUser className="text-3xl text-black" />
+          </Link>
+          {/* </Button> */}
+          <Cart />
+          {/* </div> */}
         </div>
       </div>
-      <Flex display={{ md: "none",base:'flex' }} justify={"space-between"} p={2}>
+      <Flex
+        display={{ md: "none", base: "flex" }}
+        justify={"space-between"}
+        alignItems={"center"}
+        w={"100vw"}
+        px={2}
+      >
         <NavBarButton />
         <div>
           <div className=" text-3xl font-semibold">
-            <Link href="/">Batik Moda</Link>
+            <Link href="/">
+              <Image src="/batik-logo.jpg" alt="batik logo" h={"60px"} />
+            </Link>
           </div>
         </div>
         <Cart />
       </Flex>
-    </>
+    </div>
   );
 };
 

@@ -29,15 +29,14 @@ const Cart = () => {
 
   return (
     <>
-      <Button onClick={onOpen}>
-        <BiShoppingBag className="text-2xl" />
-        <span className="cart">{products.length}</span>
-      </Button>
-      <Drawer
-        isOpen={isOpen}
-        placement="right"
-        onClose={onClose}
+      <div
+        onClick={onOpen}
+        className="relative cursor-pointer rounded-md p-2 hover:bg-gray-200"
       >
+        <BiShoppingBag className="text-2xl" />
+        <span className="cart ">{products.length}</span>
+      </div>
+      <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />

@@ -23,10 +23,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { setProducts, setShipping } from "~/redux/orderReducer";
 import { useState } from "react";
 import { PropStateProducts } from "~/schemas/schemasProducts";
-
+import { priceShipping } from "~/api/api";
+import PriceShipping from "./PriceShipping";
 const ShippingForm = () => {
   const [shipment, setShipment] = useState("envio");
   const router = useRouter();
+
+  const [price, setPrice] = useState<
+    { aDomicilio: number; aSucursal: number } | false
+  >(false);
   const {
     register,
     handleSubmit,
@@ -39,10 +44,19 @@ const ShippingForm = () => {
     (state: PropStateProducts) => state.cart.products
   );
   const dispatch = useDispatch();
-  const onSubmit = (data: any) => {
-    dispatch(setShipping(data));
-    dispatch(setProducts(products));
-    router.push("/checkout/payout");
+  const onSubmit = async (data: fieldValuesShipment) => {
+    if (shipment === "envio") {
+      dispatch(setShipping(data));
+      dispatch(setProducts(products));
+      const res: any = await priceShipping({
+        zip_code: data.zip_code,
+        province: data.province,
+      });
+
+      setPrice(res.paqarClasico);
+    } else {
+      router.push("/checkout/payout");
+    }
   };
   const onError = (error: any) => {
     console.log({ error });
@@ -51,7 +65,7 @@ const ShippingForm = () => {
     setShipment(event.target.value);
   };
   return (
-    <form onSubmit={handleSubmit(onSubmit, onError)}>
+    <form onSubmit={handleSubmit(onSubmit, onError)} className="pb-[400px]">
       <Heading my={5} as={"h2"} size={"lg"}>
         Datos del destinatario
       </Heading>
@@ -90,6 +104,13 @@ const ShippingForm = () => {
           <option value="retiro">Retiro por el local (Gratis)</option>
         </Select>
       </FormControl>
+      {shipment === "retiro" && (
+        <Flex justify={"end"}>
+          <Button type="submit" my={4} mr={0} colorScheme="teal">
+            Continuar
+          </Button>
+        </Flex>
+      )}
       {shipment === "envio" && (
         <>
           <Heading mt={10} mb={4} as={"h3"} size={"lg"}>
@@ -121,9 +142,9 @@ const ShippingForm = () => {
             <FormControl>
               <FormLabel>Provincia</FormLabel>
               <Select placeholder={"---"} {...register("province")}>
-                {provinceList.map((i: string) => (
-                  <option key={i} value={i}>
-                    {i}
+                {provinceList.map((i: { name: string; cp: string }) => (
+                  <option key={i.name} value={i.cp}>
+                    {i.name}
                   </option>
                 ))}
               </Select>
@@ -135,13 +156,21 @@ const ShippingForm = () => {
             <Input type="text" {...register("city")} />
             <FormHelperText>{errors.city?.message}</FormHelperText>
           </FormControl>
+          {price ? (
+            <PriceShipping
+              optionA={price.aDomicilio}
+              optionB={price.aSucursal}
+            />
+          ) : (
+            <Flex justify={"end"}>
+              <Button type="submit" my={4} mr={0} colorScheme="teal">
+                Continuar
+              </Button>
+            </Flex>
+          )}
         </>
       )}
-      <Flex justify={"end"}>
-        <Button type="submit" my={4} mr={0} colorScheme="teal">
-          Continuar
-        </Button>
-      </Flex>
+
       <DevTool control={control} />
     </form>
   );

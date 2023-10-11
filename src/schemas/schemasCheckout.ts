@@ -9,7 +9,8 @@ export const schemaShipment = z.object({
   phone_number: z.string().optional(),
   phone_area_code: z.string().min(4),
   shippingMethod: z.enum(["envio"]),
-  province: z.enum(provinceList),
+  shippingPrice:z.number().optional(),
+  province: z.string(),
   city: z.string().min(4),
   street_name: z.string().min(4),
   street_number: z.string().min(3),
@@ -63,4 +64,44 @@ export interface PropStateOrder {
 }
 export interface PropStateUser {
   user: { user: { email: string; username: string } };
+}
+
+export interface ApiResponse {
+  data: {
+    paqarClasico: {
+      aSucursal: number;
+      aDomicilio: number;
+    };
+  };
+  status: number;
+  statusText: string;
+  headers: {
+    [key: string]: string;
+  };
+  config: {
+    transitional: {
+      silentJSONParsing: boolean;
+      forcedJSONParsing: boolean;
+      clarifyTimeoutError: boolean;
+    };
+    adapter: string[];
+    transformRequest: null[];
+    transformResponse: null[];
+    timeout: number;
+    xsrfCookieName: string;
+    xsrfHeaderName: string;
+    maxContentLength: number;
+    maxBodyLength: number;
+    env: {};
+    headers: {
+      Accept: string;
+      'Content-Type': string;
+      'X-RapidAPI-Key': string;
+      'X-RapidAPI-Host': string;
+    };
+    method: string;
+    url: string;
+    data: string;
+  };
+  request: {};
 }
