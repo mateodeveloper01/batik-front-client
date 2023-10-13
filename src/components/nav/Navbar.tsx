@@ -13,14 +13,14 @@ const Navbar = () => {
   });
   return (
     <div>
-      <div className="flex flex-col items-center max-md:hidden ">
+      <div className="flex flex-col items-center max-md:hidden">
         <div className="flex w-screen justify-center bg-slate-200 ">
           <p className="font-semibold">
             15%OFF en efectivo y 3 Cuotas S/Interés
           </p>
         </div>
         <div
-          className={`flex w-screen max-w-[1310px]  items-center justify-between `}
+          className={`flex w-screen max-w-[1310px]  items-center justify-between px-4`}
         >
           <div className="w-[90px]"></div>
           <div className="py-2 text-3xl font-semibold ">

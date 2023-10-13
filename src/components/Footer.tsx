@@ -2,8 +2,8 @@ import { useQuery } from "@tanstack/react-query";
 import ListCreditCard from "./ListCreditCard";
 import { PropsCategories } from "~/schemas/schemasProducts";
 import { getItem } from "~/api/api";
-import { Text } from "@chakra-ui/react";
-import Link from "next/link";
+import { Link } from "@chakra-ui/next-js";
+import { BsInstagram } from "react-icons/bs";
 
 const Footer = () => {
   const { data, isLoading } = useQuery<PropsCategories[]>({
@@ -21,8 +21,13 @@ const Footer = () => {
                 <></>
               ) : (
                 data.map((item) => (
-                  <Link href={`/products/${item.title}`}>
-                    <Text textTransform="capitalize">{item.title}</Text>
+                  <Link
+                    textTransform={"capitalize"}
+                    fontWeight={"semibold"}
+                    textColor={"GrayText"}
+                    href={`/products/${item.title}`}
+                  >
+                    {item.title}
                   </Link>
                 ))
               )}
@@ -37,7 +42,7 @@ const Footer = () => {
           </div> */}
           </div>
           <div className="flex w-2/3 justify-center  gap-5 max-md:w-full max-md:p-4">
-            <div className="flex h-32 flex-col ">
+            <div className="flex h-32 w-1/2 flex-col ">
               <h1>Nosotros</h1>
               <p className="">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. A
@@ -46,14 +51,17 @@ const Footer = () => {
                 Voluptas, labore!
               </p>
             </div>
-            <div className="flex flex-col ">
-              <h1>Contacto</h1>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
-                libero atque ullam modi quo eos tempora. Quia voluptate, totam
-                laudantium quam voluptates vel sequi asperiores cupiditate at id
-                minima provident.
-              </p>
+            <div className="flex w-1/2 flex-col ">
+              <h1> Instagram</h1>
+              {/* <p></p> */}
+              <Link
+                target="__blank"
+                href="https://www.instagram.com/batik_moda/"
+                className="flex items-center gap-2"
+              >
+                <BsInstagram className="my-2 text-2xl  text-violet-700" />
+                <p className="font-semibold"> batik_moda</p>
+              </Link>
             </div>
           </div>
         </div>
