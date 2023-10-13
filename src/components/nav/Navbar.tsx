@@ -14,13 +14,15 @@ const Navbar = () => {
   return (
     <div>
       <div className="flex flex-col items-center max-md:hidden ">
-        <div className="flex justify-center bg-slate-200 w-screen ">
-          <p className="font-semibold">15%OFF en efectivo y 3 Cuotas S/Interés</p>
+        <div className="flex w-screen justify-center bg-slate-200 ">
+          <p className="font-semibold">
+            15%OFF en efectivo y 3 Cuotas S/Interés
+          </p>
         </div>
         <div
           className={`flex w-screen max-w-[1310px]  items-center justify-between `}
         >
-          <div></div>
+          <div className="w-[90px]"></div>
           <div className="py-2 text-3xl font-semibold ">
             <Link href="/">
               <Image src="/batik-logo.jpg" alt="batik logo" h={"80px"} />
