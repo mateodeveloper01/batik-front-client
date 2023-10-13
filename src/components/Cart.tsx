@@ -31,7 +31,7 @@ const Cart = () => {
     <>
       <div
         onClick={onOpen}
-        className="relative cursor-pointer rounded-md p-2 hover:bg-gray-200"
+        className="relative cursor-pointer rounded-md px-2 pt-3 hover:bg-gray-200"
       >
         <BiShoppingBag className="text-2xl" />
         <span className="cart ">{products.length}</span>

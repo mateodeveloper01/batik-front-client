@@ -12,38 +12,35 @@ const Navbar = () => {
     queryFn: () => getItem("/categories"),
   });
   return (
-    <div className="flex justify-center">
-      <div
-        className={`flex  w-screen max-w-[1310px] items-center px-4 max-md:hidden`}
-      >
-        <div className="flex flex-grow basis-0 gap-5">
-          <div className="flex gap-5">
-            {data?.map((item: PropsCategories) => (
-              <Button key={item._id} variant="link">
-                <Link href={`/products/${item.title}`} className="capitalize">
-                  {item.title}
-                </Link>
-              </Button>
-            ))}
-            <Button variant="link">
-              <Link href={`/products`}>Todos los productos</Link>
-            </Button>
+    <div>
+      <div className="flex flex-col items-center max-md:hidden ">
+        <div
+          className={`flex w-screen max-w-[1310px]  items-center justify-between `}
+        >
+          <div></div>
+          <div className="py-2 text-3xl font-semibold ">
+            <Link href="/">
+              <Image src="/batik-logo.jpg" alt="batik logo" h={"80px"} />
+            </Link>
+          </div>
+          <div className="flex">
+            <Link
+              href="/acount"
+              className="rounded-md px-2 pt-2 hover:bg-gray-200"
+            >
+              <AiOutlineUser className="text-3xl text-black" />
+            </Link>
+            <Cart />
           </div>
         </div>
-        <div className="py-2 text-3xl font-semibold ">
-          <Link href="/">
-            <Image src="/batik-logo.jpg" alt="batik logo" h={"80px"} />
-          </Link>
-        </div>
-        <div className="item-cent flex flex-grow basis-0 items-center justify-end gap-5">
-          {/* <div className="flex items-center gap-3 text-2xl"> */}
-          {/* <Button> */}
-          <Link href="/acount" className="rounded-md p-2 hover:bg-gray-200">
-            <AiOutlineUser className="text-3xl text-black" />
-          </Link>
-          {/* </Button> */}
-          <Cart />
-          {/* </div> */}
+        <div className="flex w-screen max-w-[1310px] justify-center gap-4 py-4">
+          {data?.map((item: PropsCategories) => (
+            <Button key={item._id} variant="link">
+              <Link href={`/products/${item.title}`} className="capitalize">
+                {item.title}
+              </Link>
+            </Button>
+          ))}
         </div>
       </div>
       <Flex
@@ -87,3 +84,46 @@ export default Navbar;
           <BsSearch className="text-2xl text-black" />
         </Button> */
 }
+{
+  /* <div className="flex justify-center ">
+<div
+  className={`flex w-screen max-w-[1310px] flex-col items-center px-4 max-md:hidden `}
+>
+  <div></div>
+  <div className="py-2 text-3xl font-semibold ">
+    <Link href="/">
+      <Image src="/batik-logo.jpg" alt="batik logo" h={"80px"} />
+    </Link>
+  </div>
+  <div className="item-cent flex flex-grow basis-0 items-center justify-end gap-5">
+    {/* <div className="flex items-center gap-3 text-2xl"> */
+}
+{
+  /* <Button> */
+}
+//     <Link href="/acount" className="rounded-md p-2 hover:bg-gray-200">
+//       <AiOutlineUser className="text-3xl text-black" />
+//     </Link>
+//     {/* </Button> */}
+//     <Cart />
+//     {/* </div> */}
+//   </div>
+//   <div
+//     className={`flex  w-screen max-w-[1310px] items-center px-4 max-md:hidden `}
+//   >
+//     <div className="flex flex-grow basis-0 gap-5">
+//       <div className="flex gap-5">
+//         {data?.map((item: PropsCategories) => (
+//           <Button key={item._id} variant="link">
+//             <Link href={`/products/${item.title}`} className="capitalize">
+//               {item.title}
+//             </Link>
+//           </Button>
+//         ))}
+//         <Button variant="link">
+//           <Link href={`/products`}>Todos los productos</Link>
+//         </Button>
+//       </div>
+//     </div>
+//   </div>
+// </div> */}
