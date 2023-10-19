@@ -20,15 +20,15 @@ const Navbar = () => {
           </p>
         </div>
         <div
-          className={`flex w-screen max-w-[1310px]  items-center justify-between px-4`}
+          className={`flex w-screen max-w-[1310px]  items-center justify-between `}
         >
-          <div className="w-[90px]"></div>
+          <div className="flex-grow basis-0"></div>
           <div className="py-2 text-3xl font-semibold ">
             <Link href="/">
               <Image src="/batik-logo.jpg" alt="batik logo" h={"80px"} />
             </Link>
           </div>
-          <div className="flex">
+          <div className="flex flex-grow basis-0 justify-end">
             <Link
               href="/acount"
               className="rounded-md px-2 pt-2 hover:bg-gray-200"
@@ -55,7 +55,9 @@ const Navbar = () => {
         w={"100vw"}
         px={2}
       >
-        <NavBarButton />
+        <div className="flex-grow basis-0">
+          <NavBarButton />
+        </div>
         <div>
           <div className=" text-3xl font-semibold">
             <Link href="/">
@@ -63,7 +65,9 @@ const Navbar = () => {
             </Link>
           </div>
         </div>
-        <Cart />
+        <div className="flex flex-grow basis-0 justify-end">
+          <Cart />
+        </div>
       </Flex>
     </div>
   );

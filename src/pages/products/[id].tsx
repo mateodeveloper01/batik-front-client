@@ -22,9 +22,9 @@ const Products = () => {
   });
 
   return (
-    <div className="flex px-12 py-7 max-md:flex-col-reverse max-md:px-4 max-md:py-20">
-      <div className="flex-1 max-md:hidden">
-        <div>
+    <div className="flex w-full max-md:flex-col-reverse md:px-10">
+      <div className="flex w-[20%] items-center flex-col max-md:hidden ">
+        <div className="w-[80%]">
           <h1>Filtrar por precio</h1>
           <div>
             <span>30000</span>
@@ -37,7 +37,7 @@ const Products = () => {
             <span>{maxPrice}</span>
           </div>
         </div>
-        <div>
+        <div className="w-[80%]">
           <h1>Mostrar por</h1>
           <div>
             <input
@@ -61,11 +61,13 @@ const Products = () => {
           </div>
         </div>
       </div>
-      <div className="flex-3">
+
+      <div className="flex flex-col items-center px-12 py-7 max-md:px-4 max-md:py-0 ">
         <img
           className="mb-10 h-[300px] w-full object-cover max-md:hidden"
           src={categories ? categories[0]?.img[0]?.url : ""}
         />
+        <h1 className="max-md:py-10">{query.id}</h1>
         <List
           catId={query.id}
           maxPrice={maxPrice}

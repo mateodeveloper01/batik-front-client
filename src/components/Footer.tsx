@@ -42,7 +42,7 @@ const Footer = () => {
           </div> */}
           </div>
           <div className="flex w-2/3 justify-center  gap-5 max-md:w-full max-md:p-4">
-            <div className="flex h-32 w-1/2 flex-col ">
+            <div className="flex min-h-32 w-1/2 flex-col ">
               <h1>Nosotros</h1>
               <p className="">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. A

@@ -13,7 +13,7 @@ const Card = ({ item }: Props) => {
   return (
     <Link
       href={`/product/${_id}`}
-      className="h-full min-h-[500px] w-full max-w-[300px] min-w-[200px] max-md:min-w-[150px] max-md:min-h-[280px]"
+      className="h-full min-h-[500px] w-full min-w-[200px] max-w-[300px] max-md:min-h-[280px] max-md:min-w-[150px]"
     >
       <div className="card mb-5 flex h-full flex-col gap-3">
         <div className="relative  h-3/4 overflow-hidden ">
@@ -31,8 +31,8 @@ const Card = ({ item }: Props) => {
             src={img[1] ? img[1].url : ""}
           />
         </div>
-        <div className="flex h-1/4 justify-between text-xl">
-          <h1 className="capitalize">{title}</h1>
+        <div className="flex h-1/4 justify-between text-xl max-md:text-lg">
+          <h1 className="capitalize max-md:text-lg">{title}</h1>
           <h3 className="font-semibold">${price - 1}</h3>
         </div>
       </div>
