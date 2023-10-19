@@ -40,7 +40,7 @@ const Product = () => {
                 {data.img.map((item: any, index: number) => (
                   <img
                     key={item._id}
-                    className="mb-3 h-[150px] w-full cursor-pointer  object-cover"
+                    className="mb-3 h-[150px]  cursor-pointer  object-cover"
                     src={item.url}
                     onClick={(e) => setSelectImg(index)}
                   />
@@ -48,7 +48,7 @@ const Product = () => {
               </div>
               <div className="flex-5">
                 <img
-                  className="max-h-[800px] w-full object-cover"
+                  className="max-h-[800px]  object-cover"
                   src={data?.img[selectImg]?.url}
                 />
               </div>

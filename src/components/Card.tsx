@@ -23,11 +23,11 @@ const Card = ({ item }: Props) => {
             </span>
           )}
           <img
-            className="z-1 absolute h-full w-full object-cover"
+            className="z-1 absolute  object-cover"
             src={img[0] ? img[0].url : ""}
           />
           <img
-            className="img2 absolute h-full w-full object-cover"
+            className="img2 absolute  object-cover"
             src={img[1] ? img[1].url : ""}
           />
         </div>
