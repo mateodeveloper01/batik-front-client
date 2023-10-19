@@ -63,11 +63,11 @@ const Products = () => {
       </div>
 
       <div className="flex flex-col items-center px-12 py-7 max-md:px-4 max-md:py-0 ">
-        <img
+        {/* <img
           className="mb-10 h-[300px] w-full object-cover max-md:hidden"
           src={categories ? categories[0]?.img[0]?.url : ""}
-        />
-        <h1 className="max-md:py-10">{query.id}</h1>
+        /> */}
+        <h1 className="py-10 md:text-2xl">{query.id}</h1>
         <List
           catId={query.id}
           maxPrice={maxPrice}

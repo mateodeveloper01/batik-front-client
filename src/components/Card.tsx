@@ -31,9 +31,9 @@ const Card = ({ item }: Props) => {
             src={img[1] ? img[1].url : ""}
           />
         </div>
-        <div className="flex h-1/4 justify-between text-xl max-md:text-lg">
+        <div className="flex flex-col gap-2 justify-between text-xl max-md:text-lg">
           <h1 className="capitalize max-md:text-lg">{title}</h1>
-          <h3 className="font-semibold">${price - 1}</h3>
+          <h3 className="font-semibold text-en">${price - 1}</h3>
         </div>
       </div>
     </Link>
