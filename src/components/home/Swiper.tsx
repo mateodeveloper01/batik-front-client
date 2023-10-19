@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 
 const Swiper = () => {
   const images = [
-    "/home/1.jpg",
-    "/home/2.jpg",
-    "/home/3.jpg",
+    "/home/1.png",
+    "/home/2.png",
+    "/home/4.png",
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -21,11 +21,11 @@ const Swiper = () => {
   }, [currentIndex, images]);
 
   return (
-    <div className="relative">
+    <div className="relative ">
     <img
       src={images[currentIndex]}
       alt={`Imagen ${currentIndex + 1}`}
-      className="w-[400px]"
+      className="w-[400px] ovo"
     />
   </div>
   );

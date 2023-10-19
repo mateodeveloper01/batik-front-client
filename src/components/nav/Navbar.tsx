@@ -14,7 +14,7 @@ const Navbar = () => {
   return (
     <div>
       <div className="flex flex-col items-center max-md:hidden">
-        <div className="flex w-screen justify-center bg-slate-200 ">
+        <div className="flex w-screen justify-center bg-[#fff3e9] ">
           <p className="font-semibold">
             15%OFF en efectivo y 3 Cuotas S/Interés
           </p>
