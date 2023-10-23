@@ -36,7 +36,7 @@ const Cart = () => {
         <BiShoppingBag className="text-2xl" />
         <span className="cart ">{products.length}</span>
       </div>
-      <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
+      <Drawer isOpen={isOpen} placement="right" size={'md'} onClose={onClose}>
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
@@ -65,7 +65,7 @@ const Cart = () => {
                     </div>
                     <RiDeleteBin6Line
                       onClick={() => dispatch(removeItem(id))}
-                      className="cursor-pointer text-2xl text-red-600"
+                      className="cursor-pointer text-4xl text-red-600"
                     />
                   </Flex>
                 </Card>

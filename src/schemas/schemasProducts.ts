@@ -2,12 +2,13 @@ export interface PropsItem {
   price: number;
   oldPrice?: number;
   title: string;
-  isNew?: boolean;
+  new?: boolean;
   id?: string | never;
   img: any;
   quantity: number;
   description: string;
-  _id?: string;
+  _id?: string | never;
+  isStock?: boolean;
 }
 
 export interface PropsCategories {

@@ -46,6 +46,11 @@ const Navbar = () => {
               </Link>
             </Button>
           ))}
+          <Button  variant="link">
+              <Link href={`/products/`} className="capitalize">
+                Ver todo
+              </Link>
+            </Button>
         </div>
       </div>
       <Flex
